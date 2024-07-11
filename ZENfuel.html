@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel behind the Tools at ZEN</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #1e3c72, #2a5298, #2980b9, #4ca1af);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            z-index: -2;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .paisley {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M50 0C22.4 0 0 22.4 0 50s22.4 50 50 50 50-22.4 50-50S77.6 0 50 0zm0 90C27.9 90 10 72.1 10 50S27.9 10 50 10s40 17.9 40 40-17.9 40-40 40z' fill='%23ffffff'/%3E%3Cpath d='M50 20c-16.5 0-30 13.5-30 30s13.5 30 30 30 30-13.5 30-30-13.5-30-30-30zm0 50c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z' fill='%23ffffff'/%3E%3C/svg%3E");
+            animation: rotatePaisley 30s linear infinite;
+            z-index: -1;
+        }
+        @keyframes rotatePaisley {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1, h2 {
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+        h2 {
+            font-size: 2.5em;
+            color: #4df0ff;
+        }
+        ul {
+            text-align: left;
+            max-width: 800px;
+            margin: 20px auto;
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            color: #ffffff;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .nav-buttons {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+        .nav-button {
+            padding: 10px 20px;
+            background-color: rgba(77, 240, 255, 0.3);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .nav-button:hover {
+            background-color: rgba(77, 240, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="paisley"></div>
+    
+    <div class="content">
+        <div class="slide" id="slide1">
+            <h1>Fuel behind the Tools at ZEN</h1>
+            <p>Harnessing the power of cutting-edge AI models</p>
+        </div>
+
+        <div class="slide" id="slide2">
+            <h2>Claude 3.5 Sonnet (Anthropic)</h2>
+            <ul>
+                <li>Context Window: 200,000 tokens</li>
+                <li>2x faster than predecessor</li>
+                <li>Cost: $3 per million input tokens, $15 per million output tokens</li>
+                <li>Excels in: Large document handling, data analysis, mathematical reasoning</li>
+                <li>How we harness it: Complex data interpretation, academic research support, legal document analysis</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide3">
+            <h2>GPT-4 (OpenAI)</h2>
+            <ul>
+                <li>Context Window: 8,192 tokens</li>
+                <li>Superior language understanding and generation</li>
+                <li>Excellent for content creation and conversational AI</li>
+                <li>Extensive knowledge base</li>
+                <li>How we harness it: Content writing, customer support automation, educational tool development</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide4">
+            <h2>Llama 3 (Meta)</h2>
+            <ul>
+                <li>Context Window: Varies by model version (8B, 70B, 400B parameters)</li>
+                <li>Strong in language understanding and reasoning</li>
+                <li>Effective in multi-modal and multilingual applications</li>
+                <li>Improved logical and analytical capabilities</li>
+                <li>How we harness it: Multilingual support, multi-modal data processing, scalable AI solutions</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide5">
+            <h2>Gemini 1.5 Pro (Google)</h2>
+            <ul>
+                <li>Context Window: 1,000,000 tokens</li>
+                <li>Robust multi-modal capabilities</li>
+                <li>Excels in product visualization and immersive experiences</li>
+                <li>Strong in handling long code blocks</li>
+                <li>How we harness it: 3D modeling applications, virtual reality experiences, extensive code analysis</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="nav-buttons">
+        <button class="nav-button" id="prevBtn">Previous</button>
+        <button class="nav-button" id="nextBtn">Next</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 5;
+
+        function showSlide(slideNumber) {
+            document.getElementById(`slide${slideNumber}`).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function animateListItems() {
+            const currentSlideElement = document.getElementById(`slide${currentSlide}`);
+            const listItems = currentSlideElement.querySelectorAll('li');
+            listItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+            });
+        }
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            if (currentSlide > 1) {
+                currentSlide--;
+                showSlide(currentSlide);
+                animateListItems();
+            }
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                showSlide(currentSlide);
+                animateListItems();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') document.getElementById('prevBtn').click();
+            if (e.key === 'ArrowRight') document.getElementById('nextBtn').click();
+        });
+
+        // Initial animation
+        animateListItems();
+    </script>
+</body>
+</html>
